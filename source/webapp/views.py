@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-# from webapp.forms import IssueForm
+from webapp.forms import IssueForm
 from webapp.models import Issue
 from django.views.generic import View, TemplateView, RedirectView
 
@@ -23,28 +23,33 @@ class IssueView(TemplateView):
         return context
 
 
-class TaskUpdateView(TemplateView):
+class IssueUpdateView(TemplateView):
 
     def get(self, request, *args, **kwargs):
-        task_pk = kwargs.get('pk')
-        task = get_object_or_404(Task, pk=task_pk)
-        form = TaskForm(data={
-            'summary': task.summary,
-            'description': task.description,
-            'status': task.status,
-            'type': task.type
+        issue_pk = kwargs.get('pk')
+        issue = get_object_or_404(Issue, pk=issue_pk)
+        form = IssueForm(data={
+            'summary': issue.summary,
+            'description': issue.description,
+            'status': issue.status,
+            'type': issue.type
         })
-        return render(request, 'task_update.html', context={
+        return render(request, 'update.html', context={
             'form': form,
-            'task': task
+            'issue': issue
         })
 
     def post(self, request, *args, **kwargs):
-        form = TaskForm(data=request.POST)
-        task_pk = kwargs.get('pk')
+        form = IssueForm(data=request.POST)
+        issue_pk = kwargs.get('pk')
+        issue = get_object_or_404(Issue, pk=issue_pk)
         if form.is_valid():
-            task.summary = form.cleaned_data['summary']
-            task.description = form.cleaned_data['description']
-            task.status = form.cleaned_data['status']
-            task.type = form.cleaned_data['type']
-            task.save()
+            issue.summary = form.cleaned_data['summary']
+            issue.description = form.cleaned_data['description']
+            issue.status = form.cleaned_data['status']
+            issue.type = form.cleaned_data['type']
+            issue.save()
+            return redirect("article_view", pk=issue.pk)
+        else:
+            return render(request, "update.html", context={"form": form, "issue": issue})
+
