@@ -136,6 +136,19 @@ class StatusUpdateView(TemplateView):
             return render(request, "status_update.html", context={"form": form, "status": status})
 
 
+class StatusDeleteView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        status_pk = kwargs.get('pk')
+        status = get_object_or_404(Status, pk=status_pk)
+        return render(request, "status_delete.html", context={"status": status})
+
+    def post(self, request, *args, **kwargs):
+        status_pk = kwargs.get('pk')
+        status = get_object_or_404(Status, pk=status_pk)
+        status.delete()
+        return redirect("all_statuses")
+
+
 class TypeView(TemplateView):
     template_name = 'types.html'
 
@@ -185,3 +198,15 @@ class TypeUpdateView(TemplateView):
         else:
             return render(request, "update.html", context={"form": form, "type": type})
 
+
+class TypeDeleteView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        type_pk = kwargs.get('pk')
+        type = get_object_or_404(Type, pk=type_pk)
+        return render(request, "type_delete.html", context={"type": type})
+
+    def post(self, request, *args, **kwargs):
+        type_pk = kwargs.get('pk')
+        type = get_object_or_404(Type, pk=type_pk)
+        type.delete()
+        return redirect("all_types")
