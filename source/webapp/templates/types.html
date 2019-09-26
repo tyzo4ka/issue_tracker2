@@ -10,7 +10,6 @@
     {% for type in types %}
         <h4>{{ type.name }}</h4>
         <p>
-{#            <a href="{% url 'status_add' issue.pk %}">New</a>#}
             <a href="{% url 'type_update' type.pk %}">Edit</a>
             <a href="{% url "type_delete" type.pk %}">Delete</a>
         </p>
