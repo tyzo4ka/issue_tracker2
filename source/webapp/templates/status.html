@@ -9,11 +9,11 @@
     <hr/>
     {% for status in statuses %}
         <h4>{{ status.state }}</h4>
-{#        <p>#}
+        <p>
 {#            <a href="{% url 'status_add' issue.pk %}">New</a>#}
-{#            <a href="{% url 'status_update' status.pk %}">Edit</a>#}
+            <a href="{% url 'status_update' status.pk %}">Edit</a>
 {#            <a href="{% url "issue_delete" status.pk %}">Delete</a>#}
-{#        </p>#}
+        </p>
         <hr/>
     {% endfor %}
 {% endblock %}

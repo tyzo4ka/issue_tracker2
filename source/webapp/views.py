@@ -112,6 +112,30 @@ class StatusCreateView(TemplateView):
             return render(request, "create_status.html", context={'form': form})
 
 
+class StatusUpdateView(TemplateView):
+
+    def get(self, request, *args, **kwargs):
+        status_pk = kwargs.get('pk')
+        status = get_object_or_404(Status, pk=status_pk)
+        form = StatusForm(data={
+            'state': status.state})
+        return render(request, 'status_update.html', context={
+            'form': form,
+            'status': status
+        })
+
+    def post(self, request, *args, **kwargs):
+        form = StatusForm(data=request.POST)
+        status_pk = kwargs.get('pk')
+        status = get_object_or_404(Status, pk=status_pk)
+        if form.is_valid():
+            status.state = form.cleaned_data['state']
+            status.save()
+            return redirect("all_statuses")
+        else:
+            return render(request, "status_update.html", context={"form": form, "status": status})
+
+
 class TypeView(TemplateView):
     template_name = 'types.html'
 
@@ -136,4 +160,28 @@ class TypeCreateView(TemplateView):
             return redirect("all_types")
         else:
             return render(request, "create_type.html", context={'form': form})
+
+
+class TypeUpdateView(TemplateView):
+
+    def get(self, request, *args, **kwargs):
+        type_pk = kwargs.get('pk')
+        type = get_object_or_404(Type, pk=type_pk)
+        form = TypeForm(data={
+            'name': type.name})
+        return render(request, 'type_update.html', context={
+            'form': form,
+            'type': type
+        })
+
+    def post(self, request, *args, **kwargs):
+        form = TypeForm(data=request.POST)
+        type_pk = kwargs.get('pk')
+        type = get_object_or_404(Type, pk=type_pk)
+        if form.is_valid():
+            type.name = form.cleaned_data['name']
+            type.save()
+            return redirect("all_types")
+        else:
+            return render(request, "update.html", context={"form": form, "type": type})
 
