@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ issue.summary }}{% endblock %}
+
+{#{% block menu %}#}
+{#    <li><a href="{% url "issue_update" article.pk %}">Edit</a></li>#}
+{#    <li><a href="{% url "issue_delete" article.pk %}">Delete</a></li>#}
+{#{% endblock %}#}
+
+{% block content %}
+    <h1>{{ issue.summary }}</h1>
+    <p>Status: {{ issue.status }}</p>
+    <p>Type: {{ issue.type }}</p>
+    <p>Created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
+    <div class="pre">{{ issue.description }}</div>
+{% endblock %}
