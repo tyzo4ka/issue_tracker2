@@ -12,3 +12,7 @@ class IssueForm(forms.Form):
 
 class StatusForm(forms.Form):
     state = forms.CharField(max_length=100, required=True, label="state")
+
+
+class TypeForm(forms.Form):
+    name = forms.CharField(max_length=100, required=True, label="name")

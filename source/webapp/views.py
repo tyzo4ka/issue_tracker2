@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from webapp.forms import IssueForm, StatusForm
+from webapp.forms import IssueForm, StatusForm, TypeForm
 from webapp.models import Issue, Status, Type
 from django.views.generic import View, TemplateView, RedirectView
 
@@ -120,4 +120,20 @@ class TypeView(TemplateView):
         issue_pk = kwargs.get('pk')
         context['types'] = Type.objects.all()
         return context
+
+
+class TypeCreateView(TemplateView):
+
+    def get(self, request, *args, **kwargs):
+        form = TypeForm()
+        return render(request, "create_type.html", context={"form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = TypeForm(data=request.POST)
+        if form.is_valid():
+            type = Type.objects.create(
+                name=form.cleaned_data["name"])
+            return redirect("all_types")
+        else:
+            return render(request, "create_type.html", context={'form': form})
 
