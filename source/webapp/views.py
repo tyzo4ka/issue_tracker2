@@ -23,6 +23,25 @@ class IssueView(TemplateView):
         return context
 
 
+class IssueCreateView(TemplateView):
+
+    def get(self, request, *args, **kwargs):
+        form = IssueForm()
+        return render(request, "create.html", context={"form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = IssueForm(data=request.POST)
+        if form.is_valid():
+            issue = Issue.objects.create(
+                summary=form.cleaned_data["summary"],
+                description=form.cleaned_data["description"],
+                status=form.cleaned_data["status"],
+                type=form.cleaned_data['type'])
+            return redirect("issue_view", pk=issue.pk)
+        else:
+            return render(request, "create.html", context={'form': form})
+
+
 class IssueUpdateView(TemplateView):
 
     def get(self, request, *args, **kwargs):
@@ -49,7 +68,6 @@ class IssueUpdateView(TemplateView):
             issue.status = form.cleaned_data['status']
             issue.type = form.cleaned_data['type']
             issue.save()
-            return redirect("article_view", pk=issue.pk)
+            return redirect("issue_view", pk=issue.pk)
         else:
             return render(request, "update.html", context={"form": form, "issue": issue})
-

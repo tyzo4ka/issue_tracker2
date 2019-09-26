@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{#{% block menu %}#}
-{#    <li><a href="{% url 'issue_add' %}">Add Article</a></li>#}
-{#{% endblock %}#}
+{% block menu %}
+    <li><a href="{% url 'issue_add' %}">Add Issue</a></li>
+{% endblock %}
 
 {% block content %}
     <h1>Issues:</h1>
@@ -14,7 +14,7 @@
         <p>Created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
         <p>
             <a href="{% url 'issue_view' issue.pk %}">More...</a>
-{#            <a href="{% url 'issue_update' issue.pk %}">Edit</a>#}
+            <a href="{% url 'issue_update' issue.pk %}">Edit</a>
 {#            <a href="{% url "issue_delete" issue.pk %}">Delete</a>#}
         </p>
         <hr/>
