@@ -3,7 +3,7 @@
 {% block title %}{{ issue.summary }}{% endblock %}
 
 {% block content %}
-    <h1>{{ issue.summary }}</h1>
+    <h3>{{ issue.summary }}</h3>
     <p>Status: {{ issue.status }}</p>
     <p>Type: {{ issue.type }}</p>
     <p>Created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>

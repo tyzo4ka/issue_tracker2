@@ -8,7 +8,7 @@
     <h1>Statuses:</h1>
     <hr/>
     {% for status in statuses %}
-        <h4>{{ status.state }}</h4>
+        <p>{{ status.state }}</p>
         <p>
             <a href="{% url 'status_update' status.pk %}">Edit</a>
             <a href="{% url "status_delete" status.pk %}">Delete</a>
