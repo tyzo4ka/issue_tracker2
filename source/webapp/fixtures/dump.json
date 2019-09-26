@@ -1,0 +1,128 @@
+[
+{
+  "model": "webapp.issue",
+  "pk": 1,
+  "fields": {
+    "summary": "Lorem ipsum dolor",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "status": 1,
+    "type": 1,
+    "created_date": "2019-09-26T06:43:35.582Z"
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 2,
+  "fields": {
+    "summary": "consectetur adipiscing elit",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "status": 2,
+    "type": 2,
+    "created_date": "2019-09-26T06:44:07.467Z"
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 3,
+  "fields": {
+    "summary": "Excepteur sint occaecat",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "status": 1,
+    "type": 2,
+    "created_date": "2019-09-26T06:45:09.338Z"
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 4,
+  "fields": {
+    "summary": "Duis aute irure dolor",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "status": 3,
+    "type": 3,
+    "created_date": "2019-09-26T06:45:30.924Z"
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 5,
+  "fields": {
+    "summary": "Ut enim ad minim veniam",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "status": 1,
+    "type": 2,
+    "created_date": "2019-09-26T06:46:06.966Z"
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 6,
+  "fields": {
+    "summary": "Sunt in culpa qui officia deserunt",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "status": 2,
+    "type": 1,
+    "created_date": "2019-09-26T06:46:29.227Z"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "state": "new"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "state": "in_progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "state": "done"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "name": "task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "name": "bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "name": "enchancement"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$1FxmkVYY4wIX$Q0/kaO7v2ZgczLwZzHI/6SfNM3Y3TE8Py2K1TqgGoRU=",
+    "last_login": "2019-09-26T06:18:45.528Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-09-23T14:11:41.158Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
