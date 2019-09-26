@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.forms import IssueForm
-from webapp.models import Issue
+from webapp.models import Issue, Status, Type
 from django.views.generic import View, TemplateView, RedirectView
 
 
@@ -84,3 +84,14 @@ class IssueDeleteView(TemplateView):
         issue = get_object_or_404(Issue, pk=issue_pk)
         issue.delete()
         return redirect("index")
+
+
+class StatusView(TemplateView):
+    template_name = 'status.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        issue_pk = kwargs.get('pk')
+        context['status'] = Status.objects.all()
+        return context
+

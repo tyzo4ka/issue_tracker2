@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{#{% block menu %}#}
+{#    <li><a href="{% url 'status_add' %}">Add status</a></li>#}
+{#{% endblock %}#}
+
+{% block content %}
+    <h1>Statuses:</h1>
+    <hr/>
+    {% for stat in status %}
+        <h4>{{ stat.state }}</h4>
+{#        <p>#}
+{#            <a href="{% url 'status_add' issue.pk %}">New</a>#}
+{#            <a href="{% url 'status_update' status.pk %}">Edit</a>#}
+{#            <a href="{% url "issue_delete" status.pk %}">Delete</a>#}
+{#        </p>#}
+        <hr/>
+    {% endfor %}
+{% endblock %}
