@@ -1,12 +1,10 @@
 from django import forms
 from django.forms import widgets
-from webapp.models import Category
+from webapp.models import Status, Type
 
 
-class ArticleForm(forms.Form):
-    title = forms.CharField(max_length=200, required=True, label='Title')
-    author = forms.CharField(max_length=40, required=True, label='Author')
-    text = forms.CharField(max_length=3000, required=True, label='Text',
-                           widget=widgets.Textarea)
-    category = forms.ModelChoiceField(queryset=Category.objects.all(), required=False, label='Category',
-                                      empty_label=None)
+class IssueForm(forms.Form):
+    summary = forms.CharField(max_length=300, required=True, label="Summary")
+    description = forms.CharField(max_length=5000, required=True, label="Description", widget=widgets.Textarea)
+    status = forms.ModelChoiceField(queryset=Status.objects.all(), required=True, label="Status", empty_label=None)
+    type = forms.ModelChoiceField(queryset=Type.objects.all(), required=True, label="Type", empty_label=None)
