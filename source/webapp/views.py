@@ -92,6 +92,15 @@ class StatusView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         issue_pk = kwargs.get('pk')
-        context['status'] = Status.objects.all()
+        context['statuses'] = Status.objects.all()
+        return context
+
+class TypeView(TemplateView):
+    template_name = 'types.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        issue_pk = kwargs.get('pk')
+        context['types'] = Type.objects.all()
         return context
 
