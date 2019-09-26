@@ -7,7 +7,7 @@ class IssueAdmin(admin.ModelAdmin):
     list_filter = ['status', "type"]
     list_display_links = ['pk', 'summary']
     search_fields = ['summary', 'description']
-    exclude = []
+    fields = ['pk', 'summary', 'description', "status", "type", 'created_date']
     readonly_fields = ['created_date']
 
 
