@@ -57,7 +57,7 @@ h1 {
 }
 
 .form-error {
-    color: red;
+    color: #F78E69;
     font-size: 12px;
     margin: 5px 0 0 0
 }
@@ -79,23 +79,23 @@ h1 {
 }
 
 .btn-default:hover {
-    box-shadow: rgba(128, 128, 128, 0.8) 0 0 5px;
+    box-shadow: #BEB49E 0 0 5px;
 }
 
 .btn-primary {
-    background: dodgerblue;
+    background: #D1C6AD;
 }
 
 .btn-primary:hover {
-    box-shadow: rgba(30, 144, 255, 0.8) 0 0 5px;
+    box-shadow: #D5CBB4 0 0 5px;
 }
 
 .btn-danger {
-    background: red;
+    background: #F78E69;
 }
 
 .btn-danger:hover {
-    box-shadow: rgba(255, 0, 0, 0.8) 0 0 5px;
+    box-shadow: #F78E69 0 0 5px;
 }
 
 
@@ -105,25 +105,25 @@ h1 {
 
 .pagination a, .page-disabled, .page-active {
     display: inline-block;
-    border: solid 1px #6a7ddd;
+    border: solid 1px #85819F;
     border-radius: 3px;
     padding: 5px;
     margin: 3px;
 }
 
 .pagination a {
-    background: #6a7ddd;
+    background: #797596;
     color: white;
     text-decoration: none;
 }
 
 .pagination a:hover {
-   background: #6a7dff;
+   background: #85819F;
    text-decoration: underline;
 }
 
 .page-disabled {
-    background: #6a7dcc;
+    background: #85819F;
     color: #dddddd
 }
 
@@ -134,7 +134,7 @@ h1 {
 }
 
 .page-active {
-    background: #ffc122;
+    background: #797596;
 }
 
 .comment-list {
