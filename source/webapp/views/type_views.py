@@ -1,17 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.forms import TypeForm
 from webapp.models import Type
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 
 
-class TypeView(TemplateView):
+class TypeView(ListView):
     template_name = 'type/types.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        issue_pk = kwargs.get('pk')
-        context['types'] = Type.objects.all()
-        return context
+    context_object_name = "types"
+    model = Type
 
 
 class TypeCreateView(ListView):

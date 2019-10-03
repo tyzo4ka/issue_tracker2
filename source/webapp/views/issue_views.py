@@ -29,12 +29,6 @@ class IssueView(DetailView):
     context_key = "issue"
     model = Issue
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     issue_pk = kwargs.get('pk')
-    #     context['issue'] = get_object_or_404(Issue, pk=issue_pk)
-    #     return context
-
 
 class IssueCreateView(ListView):
 

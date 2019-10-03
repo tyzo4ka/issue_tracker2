@@ -1,17 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.forms import StatusForm
 from webapp.models import Status
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 
 
-class StatusView(TemplateView):
+class StatusView(ListView):
     template_name = 'status/status.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        issue_pk = kwargs.get('pk')
-        context['statuses'] = Status.objects.all()
-        return context
+    context_object_name = 'statuses'
+    model = Status
 
 
 class StatusCreateView(ListView):
