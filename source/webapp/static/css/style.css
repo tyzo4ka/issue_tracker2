@@ -153,3 +153,7 @@ h1 {
 .comment p {
     margin: 0 0 5px;
 }
+
+body A {
+    color: #00272B;
+}
