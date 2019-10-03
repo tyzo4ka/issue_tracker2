@@ -14,7 +14,7 @@ class IndexView(ListView):
 
 
 class DetailView(TemplateView):
-    context_key = "odjects"
+    context_key = "objects"
     model = None
 
     def get_context_data(self, **kwargs):
