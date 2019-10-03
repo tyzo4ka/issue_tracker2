@@ -4,23 +4,36 @@ from webapp.models import Issue
 from django.views.generic import TemplateView, ListView
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
+    context_object_name = 'issues'
+    model = Issue
     template_name = 'Issue/index.html'
+    ordering = ['-created_date']
+    paginate_by = 3
+    paginate_orphans = 1
+
+
+class DetailView(TemplateView):
+    context_key = "odjects"
+    model = None
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['issues'] = Issue.objects.all()
+        pk = kwargs.get('pk')
+        context[self.context_key] = get_object_or_404(self.model, pk=pk)
         return context
 
 
-class IssueView(TemplateView):
+class IssueView(DetailView):
     template_name = 'Issue/issue.html'
+    context_key = "issue"
+    model = Issue
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        issue_pk = kwargs.get('pk')
-        context['issue'] = get_object_or_404(Issue, pk=issue_pk)
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     issue_pk = kwargs.get('pk')
+    #     context['issue'] = get_object_or_404(Issue, pk=issue_pk)
+    #     return context
 
 
 class IssueCreateView(ListView):

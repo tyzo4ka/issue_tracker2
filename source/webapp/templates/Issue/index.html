@@ -9,16 +9,22 @@
 {% block content %}
     <h1>Issues:</h1>
     <hr/>
-    {% for issue in issues %}
-        <h2>{{ issue.summary }}</h2>
-        <p>Status: {{ issue.status }}</p>
-        <p>Type: {{ issue.type }}</p>
-        <p>Created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
-        <p>
-            <a href="{% url 'issue_view' issue.pk %}">More</a>
-            <a href="{% url 'issue_update' issue.pk %}">Edit</a>
-            <a href="{% url "issue_delete" issue.pk %}">Delete</a>
-        </p>
-        <hr/>
-    {% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+        {% for issue in issues %}
+            <h2>{{ issue.summary }}</h2>
+            <p>Status: {{ issue.status }}</p>
+            <p>Type: {{ issue.type }}</p>
+            <p>Created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
+            <p>
+                <a href="{% url 'issue_view' issue.pk %}">More</a>
+                <a href="{% url 'issue_update' issue.pk %}">Edit</a>
+                <a href="{% url "issue_delete" issue.pk %}">Delete</a>
+            </p>
+            <hr/>
+        {% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 {% endblock %}
