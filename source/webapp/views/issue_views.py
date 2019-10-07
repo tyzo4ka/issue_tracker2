@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from webapp.forms import IssueForm
 from webapp.models import Issue
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView, DetailView, CreateView
 
 
 class IndexView(ListView):
@@ -13,40 +14,30 @@ class IndexView(ListView):
     paginate_orphans = 1
 
 
-class DetailView(TemplateView):
-    context_key = "objects"
-    model = None
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        pk = kwargs.get('pk')
-        context[self.context_key] = get_object_or_404(self.model, pk=pk)
-        return context
+# class DetailView(TemplateView):
+#     context_key = "objects"
+#     model = None
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         pk = kwargs.get('pk')
+#         context[self.context_key] = get_object_or_404(self.model, pk=pk)
+#         return context
 
 
 class IssueView(DetailView):
     template_name = 'Issue/issue.html'
-    context_key = "issue"
+    context_object_name = "issue"
     model = Issue
 
 
-class IssueCreateView(ListView):
+class IssueCreateView(CreateView):
+    model = Issue
+    template_name = "Issue/create.html"
+    form_class = IssueForm
 
-    def get(self, request, *args, **kwargs):
-        form = IssueForm()
-        return render(request, "Issue/create.html", context={"form": form})
-
-    def post(self, request, *args, **kwargs):
-        form = IssueForm(data=request.POST)
-        if form.is_valid():
-            issue = Issue.objects.create(
-                summary=form.cleaned_data["summary"],
-                description=form.cleaned_data["description"],
-                status=form.cleaned_data["status"],
-                type=form.cleaned_data['type'])
-            return redirect("issue_view", pk=issue.pk)
-        else:
-            return render(request, "Issue/create.html", context={'form': form})
+    def get_success_url(self):
+        return reverse("issue_view", kwargs={"pk": self.object.pk})
 
 
 class IssueUpdateView(ListView):
