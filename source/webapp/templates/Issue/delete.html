@@ -11,3 +11,19 @@
         <p><a href="{% url 'issue_view' issue.pk %}" class="btn btn-default">Cancel</a></p>
     </form>
 {% endblock %}
+
+
+{#{% block content %}#}
+{#        {% if with_confirmation %}#}
+{#            <h1>Are you sure want to delete issue "{{ issue }}"?</h1>#}
+{#            <form method="POST" action="{% url "issue_delete" issue.pk %}" class="text-center">#}
+{#                {% csrf_token %}#}
+{#                <p><input type="submit" value="Confirm" class="btn btn-danger"></p>#}
+{#                <p><a href="{% url 'issue_view' issue.pk %}" class="btn btn-default">Cancel</a></p>#}
+{#            </form>#}
+{#        {% endif %}#}
+{#            <form method="POST" action="{% url "issue_delete" issue.pk%}">#}
+{#            {% csrf_token %}#}
+{#                <input type="submit" class="btn btn-danger value="DELETE">#}
+{#            </form>#}
+{#{% endblock %}#}
