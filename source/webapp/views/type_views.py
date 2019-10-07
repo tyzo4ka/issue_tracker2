@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import reverse
 from webapp.forms import TypeForm
 from webapp.models import Type
-from .base import UpdateView
+from .base import UpdateView, DeleteView
 from django.views.generic import ListView, CreateView
 
 
@@ -29,36 +29,10 @@ class TypeUpdateView(UpdateView):
     def get_redirect_url(self):
         return reverse("all_types")
 
-    # def get(self, request, *args, **kwargs):
-    #     type_pk = kwargs.get('pk')
-    #     type = get_object_or_404(Type, pk=type_pk)
-    #     form = TypeForm(data={
-    #         'name': type.name})
-    #     return render(request, 'type/type_update.html', context={
-    #         'form': form,
-    #         'type': type
-    #     })
-    #
-    # def post(self, request, *args, **kwargs):
-    #     form = TypeForm(data=request.POST)
-    #     type_pk = kwargs.get('pk')
-    #     type = get_object_or_404(Type, pk=type_pk)
-    #     if form.is_valid():
-    #         type.name = form.cleaned_data['name']
-    #         type.save()
-    #         return redirect("all_types")
-    #     else:
-    #         return render(request, "Issue/update.html", context={"form": form, "type": type})
 
-
-class TypeDeleteView(ListView):
-    def get(self, request, *args, **kwargs):
-        type_pk = kwargs.get('pk')
-        type = get_object_or_404(Type, pk=type_pk)
-        return render(request, "type/type_delete.html", context={"type": type})
-
-    def post(self, request, *args, **kwargs):
-        type_pk = kwargs.get('pk')
-        type = get_object_or_404(Type, pk=type_pk)
-        type.delete()
-        return redirect("all_types")
+class TypeDeleteView(DeleteView):
+    form_class = TypeForm
+    template_name = "type/type_delete.html"
+    model = Type
+    redirect_url = "all_types"
+    object_name = "type"

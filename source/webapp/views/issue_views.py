@@ -45,4 +45,3 @@ class IssueDeleteView(DeleteView):
     model = Issue
     redirect_url = "index"
     object_name = "issue"
-    with_confirmation = True
