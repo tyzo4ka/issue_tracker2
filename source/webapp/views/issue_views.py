@@ -1,4 +1,3 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from webapp.forms import IssueForm
 from webapp.models import Issue
@@ -47,14 +46,3 @@ class IssueDeleteView(DeleteView):
     redirect_url = "index"
     object_name = "issue"
     with_confirmation = True
-
-    # def get(self, request, *args, **kwargs):
-    #     issue_pk = kwargs.get('pk')
-    #     issue = get_object_or_404(Issue, pk=issue_pk)
-    #     return render(request, "Issue/delete.html", context={"issue": issue})
-    #
-    # def post(self, request, *args, **kwargs):
-    #     issue_pk = kwargs.get('pk')
-    #     issue = get_object_or_404(Issue, pk=issue_pk)
-    #     issue.delete()
-    #     return redirect("index")

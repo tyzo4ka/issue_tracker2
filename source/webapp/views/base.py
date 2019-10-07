@@ -1,8 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
-from webapp.forms import IssueForm
-from webapp.models import Issue
-from django.views.generic import View, ListView, DetailView, CreateView
+from django.views.generic import View
 
 
 class UpdateView(View):

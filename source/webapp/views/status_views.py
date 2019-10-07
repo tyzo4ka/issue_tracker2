@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from webapp.forms import StatusForm
 from webapp.models import Status
-from .base import UpdateView
+from .base import UpdateView, DeleteView
 from django.views.generic import ListView, CreateView
 
 
@@ -51,14 +51,21 @@ class StatusUpdateView(UpdateView):
     #         return render(request, "status/status_update.html", context={"form": form, "status": status})
 
 
-class StatusDeleteView(ListView):
-    def get(self, request, *args, **kwargs):
-        status_pk = kwargs.get('pk')
-        status = get_object_or_404(Status, pk=status_pk)
-        return render(request, "status/status_delete.html", context={"status": status})
+class StatusDeleteView(DeleteView):
+    form_class = StatusForm
+    template_name = "status/status_delete.html"
+    model = Status
+    redirect_url = "all_statuses"
+    object_name = "status"
+    with_confirmation = True
 
-    def post(self, request, *args, **kwargs):
-        status_pk = kwargs.get('pk')
-        status = get_object_or_404(Status, pk=status_pk)
-        status.delete()
-        return redirect("all_statuses")
+    # def get(self, request, *args, **kwargs):
+    #     status_pk = kwargs.get('pk')
+    #     status = get_object_or_404(Status, pk=status_pk)
+    #     return render(request, "status/status_delete.html", context={"status": status})
+    #
+    # def post(self, request, *args, **kwargs):
+    #     status_pk = kwargs.get('pk')
+    #     status = get_object_or_404(Status, pk=status_pk)
+    #     status.delete()
+    #     return redirect("all_statuses")
