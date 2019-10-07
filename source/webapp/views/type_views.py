@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from webapp.forms import TypeForm
 from webapp.models import Type
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 
 
 class TypeView(ListView):
@@ -10,20 +10,13 @@ class TypeView(ListView):
     model = Type
 
 
-class TypeCreateView(ListView):
+class TypeCreateView(CreateView):
+    model = Type
+    template_name = "type/create_type.html"
+    form_class = TypeForm
 
-    def get(self, request, *args, **kwargs):
-        form = TypeForm()
-        return render(request, "type/create_type.html", context={"form": form})
-
-    def post(self, request, *args, **kwargs):
-        form = TypeForm(data=request.POST)
-        if form.is_valid():
-            type = Type.objects.create(
-                name=form.cleaned_data["name"])
-            return redirect("all_types")
-        else:
-            return render(request, "type/create_type.html", context={'form': form})
+    def get_success_url(self):
+        return reverse("all_types")
 
 
 class TypeUpdateView(ListView):
