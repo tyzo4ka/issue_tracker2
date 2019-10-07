@@ -14,17 +14,6 @@ class IndexView(ListView):
     paginate_orphans = 1
 
 
-# class DetailView(TemplateView):
-#     context_key = "objects"
-#     model = None
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         pk = kwargs.get('pk')
-#         context[self.context_key] = get_object_or_404(self.model, pk=pk)
-#         return context
-
-
 class IssueView(DetailView):
     template_name = 'Issue/issue.html'
     context_object_name = "issue"
