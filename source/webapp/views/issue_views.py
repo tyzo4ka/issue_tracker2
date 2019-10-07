@@ -26,7 +26,6 @@ class IssueCreateView(CreateView):
     template_name = "Issue/create.html"
     form_class = IssueForm
 
-
     def get_success_url(self):
         return reverse("issue_view", kwargs={"pk": self.object.pk})
 
@@ -38,7 +37,7 @@ class IssueUpdateView(UpdateView):
     object_name = "issue"
 
     def get_redirect_url(self):
-        return reverse("issue_view", kwargs={"pk": self.object.pk})
+        return reverse("issue_view", kwargs={"pk": self.kwargs.get(self.key_kwargs)})
 
 
     # def get(self, request, *args, **kwargs):

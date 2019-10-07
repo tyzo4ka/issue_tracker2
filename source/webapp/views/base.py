@@ -58,6 +58,7 @@ class UpdateView(View):
         #     return render(request, "Issue/update.html", context={"form": form, "issue": issue})
 
     def form_valid(self):
+        # self.object = self.model.objects.create(**form.cleaned_data)
         return redirect(self.get_redirect_url())
 
     def form_invalid(self, form, context_object_name):
