@@ -1,4 +1,4 @@
-from django.shortcuts import reverse
+from django.urls import reverse, reverse_lazy
 from webapp.forms import TypeForm
 from webapp.models import Type
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -33,5 +33,5 @@ class TypeDeleteView(DeleteView):
     form_class = TypeForm
     template_name = "type/type_delete.html"
     model = Type
-    redirect_url = "all_types"
-    object_name = "type"
+    success_url = reverse_lazy("all_types")
+    context_object_name = "type"
