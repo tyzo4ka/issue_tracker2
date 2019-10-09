@@ -1,8 +1,7 @@
 from django.shortcuts import reverse
 from webapp.forms import TypeForm
 from webapp.models import Type
-from .base import UpdateView, DeleteView
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 
 class TypeView(ListView):
@@ -24,9 +23,9 @@ class TypeUpdateView(UpdateView):
     model = Type
     form_class = TypeForm
     template_name = "type/type_update.html"
-    object_name = "type"
+    context_object_name = "type"
 
-    def get_redirect_url(self):
+    def get_success_url(self):
         return reverse("all_types")
 
 
