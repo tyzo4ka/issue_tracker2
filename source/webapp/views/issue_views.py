@@ -1,4 +1,4 @@
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from webapp.forms import IssueForm
 from webapp.models import Issue
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -42,5 +42,5 @@ class IssueDeleteView(DeleteView):
     form_class = IssueForm
     template_name = "Issue/delete.html"
     model = Issue
-    redirect_url = "index"
-    object_name = "issue"
+    success_url = reverse_lazy("index")
+    context_object_name = "issue"
