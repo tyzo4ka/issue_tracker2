@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+    <h3>{{ project.name }}</h3>
+{#    <p>Description: {{ project.desctiption }}</p>#}
+    <p>Created at {{ project.created_date|date:'d.m.Y H:i:s' }}</p>
+    <div class="pre">{{ project.description }}</div>
+{% endblock %}
