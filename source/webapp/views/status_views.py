@@ -1,8 +1,7 @@
 from django.shortcuts import reverse
 from webapp.forms import StatusForm
 from webapp.models import Status
-from .base import UpdateView, DeleteView
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 
 class StatusView(ListView):
@@ -24,9 +23,9 @@ class StatusUpdateView(UpdateView):
     model = Status
     form_class = StatusForm
     template_name = "status/status_update.html"
-    object_name = "status"
+    context_object_name = "status"
 
-    def get_redirect_url(self):
+    def get_success_url(self):
         return reverse("all_statuses")
 
 
