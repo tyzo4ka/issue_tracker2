@@ -6,6 +6,7 @@ class Issue(models.Model):
     description = models.TextField(max_length=5000, null=True, blank=True, verbose_name="Full description")
     status = models.ForeignKey("Status", on_delete=models.PROTECT, null=False, blank=False, verbose_name="Status")
     type = models.ForeignKey("Type", on_delete=models.PROTECT, null=False, blank=False, verbose_name="Type")
+    project = models.ForeignKey("Project", on_delete=models.CASCADE, null=True, blank=False, verbose_name="Project")
     created_date = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
 
     def __str__(self):
@@ -26,3 +27,9 @@ class Type(models.Model):
         self.name = self.name
         return self.name
 
+
+class Project(models.Model):
+    name = models.CharField(max_length=300, null=False, blank=False, verbose_name="Project name")
+    description = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Project description')
+    created_date = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
+    updated_date = models.DateTimeField(auto_now=True, verbose_name="Date updated")

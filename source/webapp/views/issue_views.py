@@ -7,21 +7,21 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 class IndexView(ListView):
     context_object_name = 'issues'
     model = Issue
-    template_name = 'Issue/index.html'
+    template_name = 'issue/index.html'
     ordering = ['-created_date']
     paginate_by = 3
     paginate_orphans = 1
 
 
 class IssueView(DetailView):
-    template_name = 'Issue/issue.html'
+    template_name = 'issue/issue.html'
     context_object_name = "issue"
     model = Issue
 
 
 class IssueCreateView(CreateView):
     model = Issue
-    template_name = "Issue/create.html"
+    template_name = "issue/create.html"
     form_class = IssueForm
 
     def get_success_url(self):
@@ -31,7 +31,7 @@ class IssueCreateView(CreateView):
 class IssueUpdateView(UpdateView):
     model = Issue
     form_class = IssueForm
-    template_name = "Issue/update.html"
+    template_name = "issue/update.html"
     context_object_name = "issue"
 
     def get_success_url(self):
@@ -40,7 +40,7 @@ class IssueUpdateView(UpdateView):
 
 class IssueDeleteView(DeleteView):
     form_class = IssueForm
-    template_name = "Issue/delete.html"
+    template_name = "issue/delete.html"
     model = Issue
     success_url = reverse_lazy("index")
     context_object_name = "issue"
