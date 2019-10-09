@@ -1,8 +1,7 @@
 from django.urls import reverse
 from webapp.forms import IssueForm
 from webapp.models import Issue
-from .base import UpdateView, DeleteView
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 class IndexView(ListView):
@@ -33,10 +32,10 @@ class IssueUpdateView(UpdateView):
     model = Issue
     form_class = IssueForm
     template_name = "Issue/update.html"
-    object_name = "issue"
+    context_object_name = "issue"
 
-    def get_redirect_url(self):
-        return reverse("issue_view", kwargs={"pk": self.kwargs.get(self.key_kwargs)})
+    def get_success_url(self):
+        return reverse("issue_view", kwargs={"pk": self.object.pk})
 
 
 class IssueDeleteView(DeleteView):
