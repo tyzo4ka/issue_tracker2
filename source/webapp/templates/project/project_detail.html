@@ -2,10 +2,16 @@
 
 {% block title %}{{ project.name }}{% endblock %}
 
+{% block menu %}
+    <li><a href="{% url 'all_projects' %}">All projects</a></li>
+    <li><a href="{% url 'project_add' %}">Add project</a></li>
+{% endblock %}
+
 {% block content %}
     <h3>{{ project.name }}</h3>
     <p>Created at {{ project.created_date|date:'d.m.Y H:i:s' }}</p>
     <div class="pre">{{ project.description }}</div>
+    <br>
     <h3>Issues:</h3>
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
@@ -13,8 +19,7 @@
     <div class="comment-list">
         {% for issue in issues %}
             <div class="issue">
-                <p>{{ issue.summary }} created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
-{#                <div class="pre">{{ comment.text }}</div>#}
+                 <p><a href="{% url 'issue_view' issue.pk%}">{{ issue.summary }}</a> created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
             </div>
         {% empty %}
             <p>No issues yet.</p>

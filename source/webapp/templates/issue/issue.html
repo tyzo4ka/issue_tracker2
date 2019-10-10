@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}{{ issue.summary }}{% endblock %}
+{% block menu %}
+    <li><a href="{% url 'all_projects' %}">All projects</a></li>
+{% endblock %}
 
 {% block content %}
     <h3>{{ issue.summary }}</h3>

@@ -33,12 +33,15 @@ class Project(models.Model):
     description = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Project description')
     created_date = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
     updated_date = models.DateTimeField(auto_now=True, verbose_name="Date updated")
+    status = models.ForeignKey("ProjectStatus", on_delete=models.PROTECT, null=True,
+                               default=1)
 
     def __str__(self):
         return self.name
 
 
 class ProjectStatus(models.Model):
+    DEFAULT_PK = 1
     name = models.CharField(max_length=100, verbose_name="name")
 
     def __str__(self):
