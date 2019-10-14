@@ -4,7 +4,7 @@
   "pk": 1,
   "fields": {
     "summary": "Lorem ipsum dolor",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Et has purto malis, eu tantas gubergren sea. Vix consul saperet tincidunt in, cu lobortis deseruisse qui. Qui no labitur convenire. Epicurei accusata percipitur an pri. Ut pri velit liber docendi, no sed mentitum menandri.",
     "status": 1,
     "type": 1,
     "project": 2,
@@ -16,7 +16,7 @@
   "pk": 2,
   "fields": {
     "summary": "consectetur adipiscing elit",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Te prima veniam offendit his, legimus delectus elaboraret eu eum. Te mei quem debet, in mel ubique feugait vivendo. Ea brute inciderint has, eum velit reformidans adversarium ea, eu eros comprehensam mel. Has integre oporteat inciderint ea, his ex iriure moderatius efficiendi, pri ex nullam graecis recusabo. Tritani oporteat theophrastus eu mea.",
     "status": 2,
     "type": 2,
     "project": 1,
@@ -52,7 +52,7 @@
   "pk": 5,
   "fields": {
     "summary": "Ut enim ad minim veniam",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Ullamcorper delicatissimi cu pri, laboramus incorrupte ne vel. Qui no referrentur contentiones, pri ut munere possim ponderum. Pri no tale bonorum, nibh sanctus vix ad, pro cu nonumy eruditi elaboraret. Quis elit ad eam, sea ut oratio oporteat.",
     "status": 1,
     "type": 2,
     "project": 2,
@@ -64,7 +64,7 @@
   "pk": 6,
   "fields": {
     "summary": "Sunt in culpa qui officia deserunt",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "description": "Cu meis brute per. Brute iusto referrentur no usu, et habemus mentitum his. Ad clita legendos nec, facer congue id mea. Sapientem facilisis rationibus et eam, in eum iudico perfecto incorrupte.",
     "status": 2,
     "type": 1,
     "project": 1,
@@ -120,7 +120,8 @@
     "name": "Donec",
     "description": "Nulla rutrum metus vitae lectus maximus, tempor fringilla nulla molestie. Ut mollis sapien mi, ac fermentum nisl tristique nec. Vivamus est nibh, fermentum in sem pellentesque, vestibulum lobortis augue. Nulla sollicitudin iaculis lacus, sed molestie odio rhoncus sollicitudin. Nullam vestibulum felis non est vehicula, at tempor felis scelerisque. Etiam ultricies metus ipsum, et placerat nibh eleifend vitae.",
     "created_date": "2019-10-10T09:38:38.534Z",
-    "updated_date": "2019-10-10T09:38:38.534Z"
+    "updated_date": "2019-10-10T09:38:38.534Z",
+    "status": 1
   }
 },
 {
@@ -130,7 +131,8 @@
     "name": "Nullam",
     "description": "Nam ipsum sapien, rhoncus ut risus nec, tincidunt aliquet enim. Ut volutpat et est et faucibus. Maecenas efficitur nulla eu urna sagittis luctus. Donec justo justo, dictum quis purus fermentum, accumsan rutrum nisi. Vestibulum nec hendrerit quam. Curabitur ultricies nunc arcu, non facilisis diam fermentum at. Ut egestas, sem congue elementum tempor, justo lectus molestie felis, et bibendum mi sem vitae tortor.",
     "created_date": "2019-10-10T09:40:18.869Z",
-    "updated_date": "2019-10-10T09:40:18.869Z"
+    "updated_date": "2019-10-10T09:40:18.869Z",
+    "status": 1
   }
 },
 {
@@ -140,7 +142,8 @@
     "name": "Aute",
     "description": "Cras quis ultrices eros. Aliquam ac porttitor sapien, et placerat massa. Suspendisse elit nibh, porttitor et placerat sit amet, lobortis eget leo. Duis fringilla nunc et pretium dignissim. In sagittis enim id rhoncus ullamcorper. Sed nunc metus, cursus nec magna id, malesuada lacinia est. Aliquam quis ligula vel metus ornare pretium in at erat.",
     "created_date": "2019-10-10T09:40:42.038Z",
-    "updated_date": "2019-10-10T09:40:42.038Z"
+    "updated_date": "2019-10-10T09:40:42.038Z",
+    "status": 1
   }
 },
 {
@@ -150,7 +153,8 @@
     "name": "Duis",
     "description": "Donec congue neque purus, vel faucibus ipsum viverra eget. Nullam dolor est, tempor vitae gravida sit amet, mollis cursus augue. Ut luctus hendrerit velit, quis consequat ex maximus id. Aliquam laoreet gravida justo. Cras vel felis quis sapien pulvinar blandit id sed libero. Sed id tempor nulla. Aenean fermentum accumsan euismod. Phasellus ac nibh non nisi lobortis imperdiet nec vel leo. Donec ullamcorper efficitur tellus et egestas. Cras hendrerit sodales purus vel faucibus. Cras fermentum augue ut tempor porttitor. Donec elementum a nibh vitae auctor.",
     "created_date": "2019-10-10T09:41:29.729Z",
-    "updated_date": "2019-10-10T09:46:15.112Z"
+    "updated_date": "2019-10-10T09:46:15.112Z",
+    "status": 1
   }
 },
 {
@@ -159,8 +163,23 @@
   "fields": {
     "name": "ff",
     "description": "ff",
-    "created_date": "2019-10-10T09:49:50.853Z",
-    "updated_date": "2019-10-10T09:49:50.853Z"
+    "created_date": "2019-10-10T11:15:34.222Z",
+    "updated_date": "2019-10-10T11:35:22.566Z",
+    "status": 1
+  }
+},
+{
+  "model": "webapp.projectstatus",
+  "pk": 1,
+  "fields": {
+    "name": "active"
+  }
+},
+{
+  "model": "webapp.projectstatus",
+  "pk": 2,
+  "fields": {
+    "name": "finished"
   }
 },
 {
@@ -168,7 +187,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$1FxmkVYY4wIX$Q0/kaO7v2ZgczLwZzHI/6SfNM3Y3TE8Py2K1TqgGoRU=",
-    "last_login": "2019-09-26T06:18:45.528Z",
+    "last_login": "2019-10-10T10:26:48.139Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
