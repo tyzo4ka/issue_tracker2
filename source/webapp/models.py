@@ -9,6 +9,8 @@ class Issue(models.Model):
     project = models.ForeignKey("Project", on_delete=models.PROTECT, null=True, blank=False, related_name="issues",
                                 verbose_name="Project")
     created_date = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Time updated')
+
 
     def __str__(self):
         return self.summary
