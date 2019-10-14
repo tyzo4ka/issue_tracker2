@@ -1,0 +1,19 @@
+from datetime import datetime, timedelta
+from webapp.models import Project, Project, Issue, Status, Type
+
+
+----------------------------------------------------------------
+
+time_now = datetime.now()
+task = Issue.objects.filter(status__state__icontains='done')
+end = datetime.now()
+start = end - timedelta(days=30)
+task_done = task.filter(created_date__range=(start, end))
+print(task_done)
+
+
+----------------------------------------------------------------
+
+type = Project.objects.filter(name__icontains='donec').values('name')
+Type.objects.filter()
+
