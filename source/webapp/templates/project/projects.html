@@ -7,6 +7,7 @@
 
 {% block content %}
     <h1>Projects:</h1>
+        {% include 'partial/simple_search.html' %}
     <hr/>
     {% for project in projects %}
         <p>{{ project.name }}</p>
