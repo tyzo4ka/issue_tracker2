@@ -16,4 +16,10 @@ print(task_done)
 
 type = Project.objects.filter(name__icontains='donec').values('name')
 Type.objects.filter()
+print(Type.objects.filter(issue_type__project__name__in=type).distinct())
 
+
+----------------------------------------------------------------
+
+project=Project.objects.all()
+print(project.filter(issues__description__icontains='culpa'))
