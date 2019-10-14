@@ -41,7 +41,6 @@ class Project(models.Model):
 
 
 class ProjectStatus(models.Model):
-    DEFAULT_PK = 1
     name = models.CharField(max_length=100, verbose_name="name")
 
     def __str__(self):

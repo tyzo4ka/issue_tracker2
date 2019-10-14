@@ -32,3 +32,7 @@ class ProjectIssueForm(forms.ModelForm):
         fields = ["summary", "description"]
 
 
+class SimpleSearchForm(forms.Form):
+    search = forms.CharField(max_length=100, required=False, label="Find")
+
+

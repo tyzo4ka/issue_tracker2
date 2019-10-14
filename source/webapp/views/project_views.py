@@ -3,6 +3,7 @@ from webapp.forms import ProjectForm, ProjectIssueForm
 from webapp.models import Project
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 
 
 class ProjectView(ListView):
@@ -61,3 +62,14 @@ class ProjectDeleteView(DeleteView):
     model = Project
     success_url = reverse_lazy("all_projects")
     context_object_name = "project"
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.form_class(data=request.POST)
+        success_url = self.get_success_url()
+        self.object.status.pk = 2
+        self.object.save()
+
+        return HttpResponseRedirect(success_url)
+
+

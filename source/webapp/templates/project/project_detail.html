@@ -11,6 +11,8 @@
     <h3>{{ project.name }}</h3>
     <p>Created at {{ project.created_date|date:'d.m.Y H:i:s' }}</p>
     <div class="pre">{{ project.description }}</div>
+    <p>Status: {{ project.status }}</p>
+
     <br>
     <h3>Issues:</h3>
     {% if is_paginated %}
