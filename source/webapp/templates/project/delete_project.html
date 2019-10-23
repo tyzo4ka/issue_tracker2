@@ -2,9 +2,9 @@
 {% block title %}Delete Project{% endblock %}
 {% block content %}
     <h1>Are you sure want to delete Project "{{ project }}"?</h1>
-    <form method="POST" action="{% url "project_delete" project.pk %}" class="text-center">
+    <form method="POST" action="{% url "webapp:project_delete" project.pk %}" class="text-center">
         {% csrf_token %}
         <p><input type="submit" value="Confirm" class="btn btn-danger"></p>
-        <p><a href="{% url 'all_projects'%}" class="btn btn-default">Cancel</a></p>
+        <p><a href="{% url 'webapp:all_projects'%}" class="btn btn-default">Cancel</a></p>
     </form>
 {% endblock %}

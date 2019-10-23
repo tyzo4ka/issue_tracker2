@@ -3,8 +3,8 @@
 {% block title %}{{ project.name }}{% endblock %}
 
 {% block menu %}
-    <li><a href="{% url 'all_projects' %}">All projects</a></li>
-    <li><a href="{% url 'project_add' %}">Add project</a></li>
+    <li><a href="{% url 'webapp:all_projects' %}">All projects</a></li>
+    <li><a href="{% url 'webapp:project_add' %}">Add project</a></li>
 {% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@
     <div class="comment-list">
         {% for issue in issues %}
             <div class="issue">
-                 <p><a href="{% url 'issue_view' issue.pk%}">{{ issue.summary }}</a> created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
+                 <p><a href="{% url 'webapp:issue_view' issue.pk%}">{{ issue.summary }}</a> created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
             </div>
         {% empty %}
             <p>No issues yet.</p>

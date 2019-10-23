@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block menu %}
-    <li><a href="{% url 'issue_add' %}">Add Issue</a></li>
-    <li><a href="{% url 'all_statuses' %}">Statuses</a></li>
-    <li><a href="{% url 'all_types' %}">Types</a></li>
-    <li><a href="{% url 'all_projects' %}">Projects</a></li>
+    <li><a href="{% url 'webapp:issue_add' %}">Add Issue</a></li>
+    <li><a href="{% url 'webapp:all_statuses' %}">Statuses</a></li>
+    <li><a href="{% url 'webapp:all_types' %}">Types</a></li>
+    <li><a href="{% url 'webapp:all_projects' %}">Projects</a></li>
 {% endblock %}
 
 {% block content %}
@@ -21,9 +21,9 @@
             <p>Project: {{ issue.project }}</p>
             <p>Created at {{ issue.created_date|date:'d.m.Y H:i:s' }}</p>
             <p>
-                <a href="{% url 'issue_view' issue.pk %}">More</a>
-                <a href="{% url 'issue_update' issue.pk %}">Edit</a>
-                <a href="{% url "issue_delete" issue.pk %}">Delete</a>
+                <a href="{% url 'webapp:issue_view' issue.pk %}">More</a>
+                <a href="{% url 'webapp:issue_update' issue.pk %}">Edit</a>
+                <a href="{% url "webapp:issue_delete" issue.pk %}">Delete</a>
             </p>
             <hr/>
         {% endfor %}

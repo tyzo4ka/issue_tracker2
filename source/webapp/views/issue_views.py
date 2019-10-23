@@ -2,7 +2,7 @@ from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from webapp.forms import IssueForm
 from webapp.models import Issue
-from django.views.generic import  DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from .base import SearchView
 
 

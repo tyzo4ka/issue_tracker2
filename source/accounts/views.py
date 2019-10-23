@@ -15,6 +15,8 @@ def login_view(request):
             context['has_error'] = True
     return render(request, 'login.html', context=context)
 
+
 def logout_view(request):
     logout(request)
     return redirect('webapp:index')
+
