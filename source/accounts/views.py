@@ -12,10 +12,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if redirect_page is not None:
-                return redirect(redirect_page)
-            else:
-                return redirect('webapp:index')
+            return redirect(redirect_page)
         else:
             context['has_error'] = True
     return render(request, 'login.html', context=context)

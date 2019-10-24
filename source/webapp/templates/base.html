@@ -16,9 +16,9 @@
             <li><a href="{% url 'webapp:index' %}">Home</a></li>
             {% block menu %}{% endblock %}
             {% if request.user.is_authenticated %}
-                <li><a href="{% url 'accounts:logout'  %}">Log Out</a></li>
+                <li><a href="{% url 'accounts:logout'  %}?next={{ request.path }}" >Log Out</a></li>
             {% else %}
-                <li><a href="{% url 'accounts:login'  %}">Log In</a></li>
+                <li><a href="{% url 'accounts:login'  %}?next={{ request.path }}" >Log In</a></li>
             {% endif %}
         </ul>
     </div>
