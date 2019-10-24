@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from webapp.forms import IssueForm
@@ -24,28 +25,28 @@ class IssueView(DetailView):
     model = Issue
 
 
-class IssueCreateView(CreateView):
+class IssueCreateView(LoginRequiredMixin, CreateView):
     model = Issue
     template_name = "issue/create.html"
     form_class = IssueForm
 
     def get_success_url(self):
-        return reverse("issue_view", kwargs={"pk": self.object.pk})
+        return reverse("webapp:issue_view", kwargs={"pk": self.object.pk})
 
 
-class IssueUpdateView(UpdateView):
+class IssueUpdateView(LoginRequiredMixin, UpdateView):
     model = Issue
     form_class = IssueForm
     template_name = "issue/update.html"
     context_object_name = "issue"
 
     def get_success_url(self):
-        return reverse("issue_view", kwargs={"pk": self.object.pk})
+        return reverse("webapp:issue_view", kwargs={"pk": self.object.pk})
 
 
 class IssueDeleteView(DeleteView):
     form_class = IssueForm
     template_name = "issue/delete.html"
     model = Issue
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("webapp:index")
     context_object_name = "issue"

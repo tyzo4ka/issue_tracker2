@@ -16,7 +16,7 @@ class TypeCreateView(CreateView):
     form_class = TypeForm
 
     def get_success_url(self):
-        return reverse("all_types")
+        return reverse("webapp:all_types")
 
 
 class TypeUpdateView(UpdateView):
@@ -26,12 +26,12 @@ class TypeUpdateView(UpdateView):
     context_object_name = "type"
 
     def get_success_url(self):
-        return reverse("all_types")
+        return reverse("webapp:all_types")
 
 
 class TypeDeleteView(DeleteView):
     form_class = TypeForm
     template_name = "type/type_delete.html"
     model = Type
-    success_url = reverse_lazy("all_types")
+    success_url = reverse_lazy("webapp:all_types")
     context_object_name = "type"
