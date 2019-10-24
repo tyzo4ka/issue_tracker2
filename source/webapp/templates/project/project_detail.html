@@ -4,7 +4,9 @@
 
 {% block menu %}
     <li><a href="{% url 'webapp:all_projects' %}">All projects</a></li>
-    <li><a href="{% url 'webapp:project_add' %}">Add project</a></li>
+    {% if request.user.is_authenticated %}
+                <li><a href="{% url 'webapp:project_add' %}">Add project</a></li>
+            {% endif %}
 {% endblock %}
 
 {% block content %}

@@ -2,7 +2,9 @@
 
 {% block menu %}
     <li><a href="{% url 'webapp:all_projects' %}">All projects</a></li>
-    <li><a href="{% url 'webapp:project_add' %}">Add project</a></li>
+    {% if request.user.is_authenticated %}
+                 <li><a href="{% url 'webapp:project_add' %}">Add project</a></li>
+            {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -13,8 +15,10 @@
         <p>{{ project.name }}</p>
         <p>
             <a href="{% url 'webapp:project_view' project.pk %}">More</a>
-            <a href="{% url 'webapp:project_update' project.pk %}">Edit</a>
-            <a href="{% url "webapp:project_delete" project.pk %}">Delete</a>
+            {% if request.user.is_authenticated %}
+                 <a href="{% url 'webapp:project_update' project.pk %}">Edit</a>
+                <a href="{% url "webapp:project_delete" project.pk %}">Delete</a>
+            {% endif %}
         </p>
         <hr/>
     {% endfor %}
