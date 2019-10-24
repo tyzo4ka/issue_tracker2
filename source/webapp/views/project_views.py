@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 from webapp.forms import ProjectForm, ProjectIssueForm
 from webapp.models import Project
@@ -42,7 +43,7 @@ class ProjectDetailView(DetailView):
         context['is_paginated'] = page.has_other_pages()
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     template_name = "project/create_project.html"
     form_class = ProjectForm
@@ -51,7 +52,7 @@ class ProjectCreateView(CreateView):
         return reverse("webapp:project_view", kwargs={"pk": self.object.pk})
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = "project/update_project.html"
@@ -61,7 +62,7 @@ class ProjectUpdateView(UpdateView):
         return reverse("webapp:project_view", kwargs={"pk": self.object.pk})
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     form_class = ProjectForm
     template_name = "project/delete_project.html"
     model = Project
