@@ -6,7 +6,8 @@ from django.core.exceptions import ValidationError
 class UserCreationForm(forms.ModelForm):
     username = forms.CharField(max_length=100, label="Username", required=True)
     password = forms.CharField(max_length=100, label="Password", required=True, widget=forms.PasswordInput)
-    password_confirm = forms.CharField(max_length=100, label="Confirm Password", required=True, widget=forms.PasswordInput)
+    password_confirm = forms.CharField(max_length=100, label="Confirm Password", required=True,
+                                       widget=forms.PasswordInput)
     email = forms.EmailField(label='Email', required=True)
 
     def clean_username(self):
@@ -14,6 +15,9 @@ class UserCreationForm(forms.ModelForm):
         try:
             User.objects.get(username=username)
             raise ValidationError("User with this username already exists", code="username_exists")
+
+        except User.DoesNotExist:
+            return username
 
     def clean(self):
         super().clean()
@@ -35,8 +39,6 @@ class UserCreationForm(forms.ModelForm):
         except User.DoesNotExist:
             return email
 
-
     class Meta:
         model = User
         fields = ['username', 'password', "password_confirm", 'first_name', 'last_name', 'email']
-
