@@ -1,6 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.views.generic import DetailView
+
 from .forms import UserCreationForm
 
 
@@ -41,5 +43,11 @@ def register_view(request):
             return redirect('webapp:index')
         else:
             return render(request, "user_create.html", {"form": form})
+
+
+class UserDetailView(DetailView):
+    model = User
+    template_name = "user_detail.html"
+    context_object_name = "user_obj"
 
 

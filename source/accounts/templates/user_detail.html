@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} User {% endblock %}
+{% block menu_links %}
+    <li><a href="#">Edit</a></li>
+    <li><a href="#">Change password</a></li>
+{% endblock %}
+{% block content %}
+    <h1>Profile: {{ user_obj.username }}</h1>
+    <p>First name: {{ user_obj.first_name }}</p>
+    <p>Last name: {{ user_obj.last_name }}</p>
+    <p>email: {{ user_obj.email }}</p>
+{% endblock %}
