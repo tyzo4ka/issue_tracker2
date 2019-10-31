@@ -56,6 +56,28 @@ class PasswordChangeForm(forms.ModelForm):
     password_confirm = forms.CharField(label="Confirm password", strip=False, widget=forms.PasswordInput)
     old_password = forms.CharField(label="Old password", strip=False, widget=forms.PasswordInput)
 
+    def clean_old_password(self):
+        old_password = self.cleaned_data.get('old_password')
+        user = self.instance
+        if not user.check_password(old_password):
+            raise ValidationError('Invalid password.', code='invalid_password')
+        return old_password
+
     def clean_password_confirm(self):
         password = self.cleaned_data.get("password")
         password_confirm = self.cleaned_data.get("password_confirm")
+        if password and password_confirm and password != password_confirm:
+            raise forms.ValidationError("Passwords do not match", code='passwords_do_not_match')
+
+
+    def save(self, commit=True):
+        user = self.instance
+        user.set_password(self.cleaned_data.get('password'))
+        if commit:
+            user.save()
+        return user
+
+    class Meta:
+        model = User
+        fields = ['password', 'password_confirm', 'old_password']
+
