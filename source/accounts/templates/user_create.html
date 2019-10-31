@@ -3,6 +3,6 @@
 {% block content %}
     <h1>Sing Up</h1>
     <form action="{% url "accounts:create" %}" method="post">
-    {% include "partial/issue_form.html" with button_text="Сохранить"%}
+    {% include "partial/form.html" with button_text="Сохранить"%}
     </form>
 {% endblock %}

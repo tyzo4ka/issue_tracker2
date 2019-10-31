@@ -42,3 +42,20 @@ class UserCreationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password', "password_confirm", 'first_name', 'last_name', 'email']
+
+
+class UserChangeForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["first_name", 'last_name', 'email']
+        labels = {'first_name': "First name", "last_name": "Last name", "email": "email"}
+
+
+class PasswordChangeForm(forms.ModelForm):
+    password = forms.CharField(label="New password", strip=False, widget=forms.PasswordInput)
+    password_confirm = forms.CharField(label="Confirm password", strip=False, widget=forms.PasswordInput)
+    old_password = forms.CharField(label="Old password", strip=False, widget=forms.PasswordInput)
+
+    def clean_password_confirm(self):
+        password = self.cleaned_data.get("password")
+        password_confirm = self.cleaned_data.get("password_confirm")
