@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section>
+        <h1>Users:</h1>
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+        <hr/>
+        {% for user in users %}
+            <h2><a href="{% url 'accounts:detail' user.pk %}">{{ user.username }}</a></h2>
+        {% endfor %}
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+    </section>
+{% endblock %}
