@@ -8,7 +8,8 @@
     "status": 1,
     "type": 1,
     "project": 2,
-    "created_date": "2019-09-26T06:43:35.582Z"
+    "created_date": "2019-09-26T06:43:35.582Z",
+    "updated_at": "2019-10-14T11:51:51.954Z"
   }
 },
 {
@@ -20,7 +21,8 @@
     "status": 2,
     "type": 2,
     "project": 1,
-    "created_date": "2019-09-26T06:44:07.467Z"
+    "created_date": "2019-09-26T06:44:07.467Z",
+    "updated_at": "2019-10-14T11:51:51.954Z"
   }
 },
 {
@@ -32,7 +34,8 @@
     "status": 1,
     "type": 2,
     "project": 4,
-    "created_date": "2019-09-26T06:45:09.338Z"
+    "created_date": "2019-09-26T06:45:09.338Z",
+    "updated_at": "2019-10-14T11:51:51.954Z"
   }
 },
 {
@@ -44,7 +47,8 @@
     "status": 3,
     "type": 3,
     "project": 3,
-    "created_date": "2019-09-26T06:45:30.924Z"
+    "created_date": "2019-09-26T06:45:30.924Z",
+    "updated_at": "2019-10-14T11:51:51.954Z"
   }
 },
 {
@@ -56,7 +60,8 @@
     "status": 1,
     "type": 2,
     "project": 2,
-    "created_date": "2019-09-26T06:46:06.966Z"
+    "created_date": "2019-09-26T06:46:06.966Z",
+    "updated_at": "2019-10-14T11:51:51.954Z"
   }
 },
 {
@@ -68,7 +73,8 @@
     "status": 2,
     "type": 1,
     "project": 1,
-    "created_date": "2019-09-26T06:46:29.227Z"
+    "created_date": "2019-09-26T06:46:29.227Z",
+    "updated_at": "2019-10-14T11:51:51.954Z"
   }
 },
 {
@@ -184,10 +190,100 @@
 },
 {
   "model": "auth.user",
-  "pk": 1,
+  "pk": 2,
   "fields": {
-    "password": "pbkdf2_sha256$150000$1FxmkVYY4wIX$Q0/kaO7v2ZgczLwZzHI/6SfNM3Y3TE8Py2K1TqgGoRU=",
-    "last_login": "2019-10-10T10:26:48.139Z",
+    "password": "pbkdf2_sha256$150000$HgmL1BMEl6vl$UyP8Q4oecqIqfzo7r/yqIE32jGQMi9ubyhc/NKm3l2M=",
+    "last_login": "2019-10-26T06:05:00.520Z",
+    "is_superuser": false,
+    "username": "admin_2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-10-26T06:05:00.353Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$AAL79MDKkFC0$XsVUrMhjis68LaMgicPmLKb8E1l0EV9rF974P7Lr0jo=",
+    "last_login": "2019-10-26T06:38:01.006Z",
+    "is_superuser": false,
+    "username": "aa",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-10-26T06:38:00.846Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$BRJBryq3EIVg$GBcWZGcU43gaYLpOsC4fw4IpIzuO5/ttTejelRKYtsw=",
+    "last_login": "2019-10-26T06:53:23.270Z",
+    "is_superuser": false,
+    "username": "admin_3",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-10-26T06:53:23.108Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$bd35HqcsadUC$weuxmxBoQrP9KNJA+oVPAqVW6Z9pgcvk9UAz8Z1oh/M=",
+    "last_login": "2019-10-31T09:14:48.402Z",
+    "is_superuser": false,
+    "username": "user1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-10-31T09:01:42.747Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$tqCKfREpKvBh$x3zXHN4ezP75t3Du9gAj+chfdkw0y3HqvOSHF6SgpG4=",
+    "last_login": "2019-10-31T09:54:56.349Z",
+    "is_superuser": true,
+    "username": "adm",
+    "first_name": "a",
+    "last_name": "a",
+    "email": "a@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-10-31T09:54:42.782Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$Ptp1AXk6UQuy$tBBPucdMWfj3HN6W4QSb7AZqOYmffoRl66kuublNjnw=",
+    "last_login": null,
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -195,7 +291,7 @@
     "email": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2019-09-23T14:11:41.158Z",
+    "date_joined": "2019-10-31T09:56:11.952Z",
     "groups": [],
     "user_permissions": []
   }
