@@ -157,3 +157,11 @@ h1 {
 body A {
     color: #00272B;
 }
+
+.avatar {
+    display: inline-block;
+    float: left;
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+}
