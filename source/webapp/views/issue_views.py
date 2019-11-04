@@ -34,9 +34,6 @@ class UserPassesCheck(View):
 
     def check(self, project_pk, user_name):
         project = Project.objects.filter(pk=project_pk)
-        print(project)
-        print(user_name)
-        print(project[0].projects.all())
         teams = project[0].projects.all()
         for user in teams:
             print(user.user)
@@ -71,7 +68,6 @@ class IssueUpdateView(UserPassesCheck, UpdateView):
 
     def get(self, *args, **kwargs):
         project_pk = self.get_object().project.pk
-        print(project_pk)
         check = self.check(project_pk, self.request.user)
         if check:
             return super().get(self.request)
@@ -90,7 +86,6 @@ class IssueDeleteView(UserPassesCheck, DeleteView):
 
     def get(self, *args, **kwargs):
         project_pk = self.get_object().project.pk
-        print(project_pk)
         check = self.check(project_pk, self.request.user)
         if check:
             return super().get(self.request)
