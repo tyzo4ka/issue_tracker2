@@ -25,4 +25,4 @@ class Team(models.Model):
     project = models.ForeignKey("webapp.Project", related_name="projects", on_delete=models.CASCADE,
                                 verbose_name='Проект')
     start_date = models.DateTimeField(verbose_name="Start date")
-    end_date = models.DateTimeField(verbose_name="Date created")
+    end_date = models.DateTimeField(verbose_name="End created")
