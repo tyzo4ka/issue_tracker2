@@ -77,6 +77,26 @@ class UserChangeForm(forms.ModelForm):
             return getattr(self.instance.profile, field_name)
         return super().get_initial_for_field(field, field_name)
 
+    def clean_github(self):
+        github = self.cleaned_data.get("github")
+        if github.startswith("https://github.com/"):
+            git_name = github.replace("https://github.com/", "")
+            git_name = git_name.rstrip("/")
+            if len(git_name) > 39:
+                raise ValidationError('Github username maximum is 39 characters', code='git_name_more_than_39')
+            elif git_name.startswith("-") or git_name.endswith:
+                raise ValidationError("Github username can't starts or ends with hyphen",
+                                      code='git_name_starts_or_ends_with_hyphen')
+            elif "--" in git_name:
+                raise ValidationError("Github username can't have multiple consecutive hyphen",
+                                      code='git_name_multiple_hyphen')
+            elif not git_name.replace("-", "").isalnum():
+                raise ValidationError("Github username may only contain alphanumeric characters or hyphens",
+                                      code='git_name_unacceptable_symbols')
+            return self.cleaned_data
+        else:
+            raise ValidationError('It is not a link to github profile', code='wrong_github_link')
+
 
 class PasswordChangeForm(forms.ModelForm):
     password = forms.CharField(label="New password", strip=False, widget=forms.PasswordInput)
