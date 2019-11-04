@@ -51,8 +51,13 @@ class IssueCreateView(UserPassesCheck, CreateView):
     template_name = "issue/create.html"
     form_class = IssueForm
 
-    def test_func(self):
-        return self.request.user.pk == self.kwargs["pk"]
+    def get(self, *args, **kwargs):
+        project_pk = self.get_object().project.pk
+        print(project_pk)
+        check = self.check(project_pk, self.request.user)
+        if check:
+            return super().get(self.request)
+        return HttpResponseForbidden("Access is denied")
 
     def get_success_url(self):
         return reverse("webapp:issue_view", kwargs={"pk": self.object.pk})
@@ -76,12 +81,17 @@ class IssueUpdateView(UserPassesCheck, UpdateView):
         return reverse("webapp:issue_view", kwargs={"pk": self.object.pk})
 
 
-class IssueDeleteView(UserPassesTestMixin, DeleteView):
+class IssueDeleteView(UserPassesCheck, DeleteView):
     form_class = IssueForm
     template_name = "issue/delete.html"
     model = Issue
     success_url = reverse_lazy("webapp:index")
     context_object_name = "issue"
 
-    def test_func(self):
-        return self.request.user.pk == self.kwargs["pk"]
+    def get(self, *args, **kwargs):
+        project_pk = self.get_object().project.pk
+        print(project_pk)
+        check = self.check(project_pk, self.request.user)
+        if check:
+            return super().get(self.request)
+        return HttpResponseForbidden("Access is denied")
