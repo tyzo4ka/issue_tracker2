@@ -2,8 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# DEFAULT_AVATAR = "/uploads/user_pics/default_avatar.jpg"
-
 
 class Profile(models.Model):
 
@@ -21,3 +19,10 @@ class Profile(models.Model):
         verbose_name = "Профиль"
         verbose_name_plural = "Профили"
 
+
+class Team(models.Model):
+    user = models.ForeignKey(User, related_name="users", on_delete=models.CASCADE, verbose_name='Юзер')
+    project = models.ForeignKey("webapp.Project", related_name="projects", on_delete=models.CASCADE,
+                                verbose_name='Проект')
+    start_date = models.DateTimeField(verbose_name="Start date")
+    end_date = models.DateTimeField(verbose_name="Date created")
