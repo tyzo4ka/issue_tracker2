@@ -1,4 +1,9 @@
 from django.db import models
+from accounts.models import User
+
+
+def get_admin():
+    return User.objects.get(username='admin').id
 
 
 class Issue(models.Model):
@@ -10,7 +15,8 @@ class Issue(models.Model):
                                 verbose_name="Project")
     created_date = models.DateTimeField(auto_now_add=True, verbose_name="Date created")
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Time updated')
-
+    created_by = models.ForeignKey(User, on_delete=models.PROTECT, null=False, blank=False, default=get_admin,
+                                   related_name="issues", verbose_name="Created by")
 
     def __str__(self):
         return self.summary
