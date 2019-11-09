@@ -20,8 +20,8 @@ class Profile(models.Model):
 
 
 class Team(models.Model):
-    user = models.ForeignKey(User, related_name="users", on_delete=models.CASCADE, verbose_name='Юзер')
-    project = models.ForeignKey("webapp.Project", related_name="projects", on_delete=models.CASCADE,
+    user = models.ForeignKey(User, related_name="teams", on_delete=models.CASCADE, verbose_name='Юзер')
+    project = models.ForeignKey("webapp.Project", related_name="teams", on_delete=models.CASCADE,
                                 verbose_name='Проект')
     start_date = models.DateTimeField(verbose_name="Start date")
     end_date = models.DateTimeField(verbose_name="End created")

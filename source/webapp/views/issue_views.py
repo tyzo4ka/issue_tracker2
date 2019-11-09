@@ -36,11 +36,7 @@ class UserPassesCheck(View):
         project = Project.objects.filter(pk=project_pk)
         teams = project[0].projects.all()
         for user in teams:
-            print(user.user)
-            if user_name == user.user:
-                return True
-            else:
-                return False
+            return user_name == user.user
 
 
 class IssueCreateView(UserPassesCheck, CreateView):
@@ -48,12 +44,26 @@ class IssueCreateView(UserPassesCheck, CreateView):
     template_name = "issue/create.html"
     form_class = IssueForm
 
-    def get(self, *args, **kwargs):
-        project_pk = self.get_object().project.pk
-        print(project_pk)
+    # def get_form(self, **kwargs):
+    #     form = super().get_form()
+    #     pk = self.kwargs.get('pk')
+    #     project = Project.objects.get(pk=pk)
+    #     form.fields['project'].initial = project
+    #     form.fields['created_by'].initial = self.request.user
+    #     return form
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        project_pk = self.kwargs.get('pk')
+        project = Project.objects.filter(teams__user=self.request.user)
+        kwargs['projects'] = project
+        return kwargs
+
+    def form_valid(self, form):
+        project_pk = self.request.POST.get('project')
         check = self.check(project_pk, self.request.user)
         if check:
-            return super().get(self.request)
+            return super().form_valid(form)
         return HttpResponseForbidden("Access is denied")
 
     def get_success_url(self):

@@ -3,7 +3,7 @@ from webapp.models import Issue, Status, Type, Project, ProjectStatus
 
 
 class IssueAdmin(admin.ModelAdmin):
-    list_display = ['pk', 'summary', 'description', "status", "type", 'created_date']
+    list_display = ['pk', 'summary', 'description', "status", "type", 'created_date', 'assigned_to', 'created_by']
     list_filter = ['status', "type"]
     list_display_links = ['pk', 'summary']
     search_fields = ['summary', 'description']
